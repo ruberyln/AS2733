@@ -153,7 +153,7 @@ window.onload = function init()
       var x = 2*event.clientX/canvas.width-1;
       var y = 2*(canvas.height-event.clientY)/canvas.height-1;
       mouseMotion(x, y);
-      
+      document.getElementById("mousey").innerHTML = event.clientX  ;
     } );
 
   
