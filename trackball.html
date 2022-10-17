@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in  vec4 aPosition;
+in  vec4 aColor;
+out vec4 vColor;
+
+uniform mat4 uRotationMatrix;
+
+void main()
+{
+  vec4 p;
+
+  gl_Position = uRotationMatrix*aPosition;
+  vColor = aColor;
+}
+</script>
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+in vec4 vColor;
+out vec4 fColor;
+
+void
+main()
+{
+    fColor = vColor;
+}
+</script>
+
+<script type="text/javascript" src="../AS2 733/common/initShaders.js"></script>
+<script type="text/javascript" src="../AS2 733/common/MVne.js"></script>
+<script type="text/javascript" src="trackball.js"></script>
+</head>
+
+
+<body>
+  <div class="card">
+ 
+      <h1>BootStrap Interface</h1>
+    </div>
+    <div class="container">
+
+     <center> <h3>Welcome To The Trackball</h3> </center>
+      <h5> What to do :</h5>
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           A Little Direction for some FUN
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>How the trackball works.</strong> This cube has several colors on each side and to view and  perform functions you will need to follow the instructions below 
+          </div>
+        </div>
+      </div>
+    <br>
+    <div class="container overflow-hidden">
+      <div class="row gx-5">
+        <div class="col">
+         <div class="p-3 border bg-light">Step 1 : Click once to start cube movement then move mouse </div>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light">Step 2: Double Click to stop the cube movement
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-3 border bg-light">Step 3: Hover around with mouse to see other sides and colors of the cube, the more you hover the faster the cube moves.
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container-fluid col-6">
+<canvas id="gl-canvas" width="512"" height="512" title="click to start" >
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</div>
+<center>
+<div class = "btn-group">
+
+  
+    <button type = "button" class="btn btn-danger" id = "start">
+      <span id="start "></span>
+     POINTS CLICKED ON X AXIS: 
+    </button>
+    <button  type = "button" class="btn btn-warning" id="stop">
+      <span id="stop "></span>
+     POINTS CLICKED ON Y AXIS:
+
+    </button>
+  </center>
+  </div>
+  
+<br/>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  </body>
+</html>
